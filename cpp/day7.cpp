@@ -46,17 +46,11 @@ int main(int argc, char* argv[]) {
     for (int i = 0; i < mylist.size(); i++) 
     {
         std::uint64_t acc = 0;
-        for (int j = 0; j < mylist.size(); j++) {
-            acc += std::abs(gauss( std::abs(i - mylist[j])));
+        for (auto &j: mylist) {
+            acc += std::abs(gauss( std::abs(i - j)));
         }
         min = std::min(acc, min);
     }
     
-    std::cout << "Part 2 = " << min << std::endl;
-    acc = 0;
-    for (auto &x: mylist)  {
-        acc += std::abs(x-median);
-    }
-    
-    
+    std::cout << "Part 2 = " << min << std::endl;    
 }
